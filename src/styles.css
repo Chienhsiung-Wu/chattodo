@@ -68,9 +68,5 @@ select{-webkit-appearance:none;appearance:none;background-image:url("data:image/
 @keyframes lx-pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @keyframes lx-spin{to{transform:rotate(360deg)}}
 .lx-spin{display:inline-block;animation:lx-spin .8s linear infinite}
-/* numeric/date/id/code runs — the Attio "feel" cue */
+/* numeric/date/id/code runs — the Attio "feel" cue (admin still uses it) */
 .lx-mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:var(--tracking-mono)}
-[data-hv="0"],[data-hv="1"],[data-hv="2"]{transition:var(--transition-colors)}
-[data-hv="0"]:hover{background:var(--mid) !important}
-[data-hv="1"]:hover{background:var(--line) !important}
-[data-hv="2"]:hover{border-color:var(--accent) !important}
