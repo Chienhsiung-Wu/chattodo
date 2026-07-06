@@ -816,7 +816,8 @@
 </template>
 
 <script>
-import { reactive, computed, onMounted, onUpdated, onBeforeUnmount, nextTick } from 'vue';
+import { computed, onMounted, onUpdated, onBeforeUnmount, nextTick } from 'vue';
+import { state as appState } from './app/state';
 import { api, setToken, getToken } from './lib/api.js';
 import { shouldSendOnEnter, isComposingEvent } from './lib/keyboard.js';
 import { expandTimeTokens } from './lib/timeTokens.js';
@@ -1776,7 +1777,10 @@ export default {
   name: 'LinXApp',
   setup() {
     const inst = new Component();
-    inst.state = reactive(inst.state);
+    // Migration bridge: the legacy class operates ON the shared module state
+    // (src/app/state.ts), so extracted composable functions and the remaining
+    // class methods always read/write the same reactive store.
+    inst.state = appState;
     inst.setState = function (patch, cb) {
       const p = (typeof patch === 'function') ? patch(this.state) : patch;
       if (p) Object.assign(this.state, p);
