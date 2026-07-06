@@ -5,7 +5,7 @@
 // so every ui/* component inherits the Attio skin and dark mode for free.
 export default {
   darkMode: ['selector', '[data-theme="dark"]'],
-  content: ['./index.html', './src/**/*.{vue,js,ts}'],
+  content: ['./index.html', './src/**/*.{vue,js,ts}', './.verify/**/*.{vue,ts}'],
   theme: {
     extend: {
       colors: {
