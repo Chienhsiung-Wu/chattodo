@@ -1,7 +1,8 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import './styles/tokens.css'; // design tokens first, so app styles can reference them
-import './styles.css';
+import './styles/tailwind.css'; // tailwind (preflight+utilities) bridges onto the tokens
+import './styles.css'; // legacy semantic-var remap — must come after preflight so body{} wins
 
 const app = createApp(App);
 

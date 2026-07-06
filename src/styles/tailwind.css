@@ -1,0 +1,28 @@
+/* Tailwind entry. Import order in main.js is tokens.css → tailwind.css →
+   styles.css, so design tokens are defined before utilities and the legacy
+   semantic-var remap (body{}) still wins over preflight. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* keep the app's established typography defaults under preflight */
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    font-size: var(--text-base);
+    background: var(--surface-base);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  /* numeric/date/id runs — the Attio "feel" cue, shared with legacy .lx-mono */
+  .font-nums {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: var(--tracking-mono);
+  }
+}

@@ -6,6 +6,11 @@ import vue from '@vitejs/plugin-vue'
 // 后台构建到 dist/admin/，由 nginx 挂在 /todo/admin/，与主站互不暴露。
 export default defineConfig({
   plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
   build: {
     rollupOptions: {
       input: {
